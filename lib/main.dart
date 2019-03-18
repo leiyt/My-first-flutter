@@ -59,7 +59,7 @@ class RandomWordsState extends State {
       appBar: new AppBar(
         title: new Text("My first flutter app"),
         actions: <Widget>[
-          new IconButton(icon: new Icon(Icons.list), onPressed: _pushSaved),
+          new IconButton(icon: new Icon(Icons.favorite), onPressed: _pushSaved),
         ],
       ),
       body: _buildSuggestions(),
@@ -108,28 +108,112 @@ class RandomWordsState extends State {
 
   //添加导航方法
   void _pushSaved() {
-    Navigator.of(context).push(new MaterialPageRoute(//创建一个装置，循环渲染_saved里面的单词
-        builder: (context) {
-      final tiles = _saved.map((pair) {
-        return new ListTile(
-          title: new Text(
-            pair.asPascalCase,
-            style: _biggerFont,
+    var materialPageRoute = new MaterialPageRoute(//创建一个装置，循环渲染_saved里面的单词
+      builder: (context) {
+        final tiles = _saved.map((pair) {
+          var listTile = new ListTile(
+            leading: new Icon(Icons.ac_unit),
+            title: new Text(
+              pair.asPascalCase,
+              style: _biggerFont,
+            ),
+            trailing: new Icon(Icons.chevron_right),
+            selected: true,
+            onTap: (){//点击单词跳转页面，页面内容为 MaterialPageRoute 的内容
+              Navigator.of(context).push(
+                new MaterialPageRoute(builder: (context) {
+                  return new Scaffold(
+                    appBar: new AppBar(
+                      title: new Text("点击的单词"),
+                    ),
+                    body: new Container(
+                      padding: const EdgeInsets.all(10),
+                      child: new Row(
+                        children: <Widget>[
+                          new Icon(Icons.add_shopping_cart),
+                          new Text(pair.asPascalCase),
+                        ],
+                      ),
+                    ),
+                  );
+                })
+              );
+            },
+          );
+          return listTile;
+        });
+        final divided = ListTile.divideTiles(
+          context: context,
+          tiles: tiles,
+        ).toList();
+
+        //创建一个Scaffold容器
+        return new Scaffold(
+          appBar: new AppBar(
+            title: new Text('我收藏的单词'),
+            actions: <Widget>[
+              new IconButton(icon: new Icon(Icons.filter_vintage), onPressed: toNewPage),
+            ],
+          ),
+          body: new ListView(children: divided),
+        );
+      }
+    );
+    Navigator.of(context).push(
+      materialPageRoute
+    );
+  }
+
+  
+
+  void toNewPage() {
+    var materialPageRoute2 =new MaterialPageRoute(
+      builder: (context) {
+        return new Scaffold(
+          appBar: new AppBar(
+            title: new Text('从收藏页面跳转过来的'),
+            actions: <Widget>[
+              new IconButton(icon: new Icon(Icons.ac_unit), onPressed: null),
+            ],
+          ),
+          body: new Row(
+            children: <Widget>[
+              new Container(
+                width: 100,
+                height: 80,
+                color: const Color(0xfff0f0f0),
+                child: new Container(
+                  child: new Icon(Icons.art_track),
+                ),
+              ),
+              new Expanded(
+                child: new Container(
+                  padding: const EdgeInsets.all(20),
+                  child: new Text('搜索'),
+                ),
+              ),
+              new Container(
+                padding: const EdgeInsets.all(10),
+                height: 80,
+                child: new RaisedButton(
+                  child: new Text('按钮'),
+                color: const Color(0xffea9999),
+                  onPressed: (){
+                    print('点击按钮');
+                  },
+                ),
+              ),
+              
+            ],
           ),
         );
-      });
-      final divided = ListTile.divideTiles(
-        context: context,
-        tiles: tiles,
-      ).toList();
-
-      //创建一个Scaffold
-      return new Scaffold(
-        appBar: new AppBar(
-          title: new Text('我收藏的单词'),
-        ),
-        body: new ListView(children: divided),
-      );
-    }));
+      }
+    );
+    Navigator.of(context).push(
+      materialPageRoute2
+    );
   }
+  
 }
+
+ 
