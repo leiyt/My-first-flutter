@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -9,7 +8,6 @@ import 'pages/MyPage.dart';
 import 'package:startup_namer/list.dart';
 // import 'pages/Demo1.dart';
 
-
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,6 +15,10 @@ class MainPage extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           "/list": (BuildContext context) => new RandomWords(),
+          "/home": (BuildContext context) => new HomePage(),
+          "/msg": (BuildContext context) => new MsgPage(),
+          "/shop": (BuildContext context) => new ShopPage(),
+          "/my": (BuildContext context) => new MyPage(),
         },
         home: new MainPageWidget());
   }
@@ -28,6 +30,7 @@ class MainPageWidget extends StatefulWidget {
     return new MainPageState();
   }
 }
+
 class MainPageState extends State<MainPageWidget> {
   int _tabIndex = 0;
   var tabImages;
@@ -50,18 +53,23 @@ class MainPageState extends State<MainPageWidget> {
     }
     return tabImages[curIndex][0];
   }
+
   /*
    * 获取bottomTab的颜色和文字
    */
   Text getTabTitle(int curIndex) {
     if (curIndex == _tabIndex) {
       return new Text(appBarTitles[curIndex],
-          style: new TextStyle(color: const Color(0xff63ca6c)));
+          style: new TextStyle(color: const Color(0xff1296db)));
     } else {
       return new Text(appBarTitles[curIndex],
-          style: new TextStyle(color: const Color(0xff888888)));
+          style: new TextStyle(
+            color: const Color(0xff666666),
+            fontSize: 15,
+          ));
     }
   }
+
   /*
    * 存储的四个页面，和Fragment一样
    */
@@ -90,12 +98,7 @@ class MainPageState extends State<MainPageWidget> {
       ]
     ];
 
-    _bodys = [
-      new HomePage(),
-      new ShopPage(),
-      new MsgPage(),
-      new MyPage(context)
-    ];
+    _bodys = [new HomePage(), new ShopPage(), new MsgPage(), new MyPage()];
   }
 
   @override
@@ -108,10 +111,34 @@ class MainPageState extends State<MainPageWidget> {
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.widgets),
-            onPressed: (){
+            onPressed: () {
               Navigator.of(context).pushNamed("/list");
             },
-          )
+          ),
+          new IconButton(
+            icon: new Icon(Icons.view_list),
+            onPressed: () {
+              Navigator.of(context).pushNamed("/home");
+            },
+          ),
+          new IconButton(
+            icon: new Icon(Icons.view_list),
+            onPressed: () {
+              Navigator.of(context).pushNamed("/msg");
+            },
+          ),
+          new IconButton(
+            icon: new Icon(Icons.view_list),
+            onPressed: () {
+              Navigator.of(context).pushNamed("/shop");
+            },
+          ),
+          new IconButton(
+            icon: new Icon(Icons.view_list),
+            onPressed: () {
+              Navigator.of(context).pushNamed("/my");
+            },
+          ),
         ],
       ),
       body: _bodys[_tabIndex],

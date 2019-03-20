@@ -6,7 +6,7 @@ class MsgPage extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.brown,
       ),
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
