@@ -43,6 +43,11 @@ dev_dependencies:
 flutter:
   assets: 
     - images/like.png
+    - images/house.png
+    - images/bpbg.jpg
+    - images/timbg.jpg
+    - images/black.jpg
+    - images/bluebg.jpg
     - images/ic_home_normal.png
     - images/ic_home_press.png
     - images/ic_shop_normal.png

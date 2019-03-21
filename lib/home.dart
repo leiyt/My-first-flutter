@@ -12,15 +12,25 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-        debugShowCheckedModeBanner: false,
-        routes: <String, WidgetBuilder>{
-          "/list": (BuildContext context) => new RandomWords(),
-          "/home": (BuildContext context) => new HomePage(),
-          "/msg": (BuildContext context) => new MsgPage(),
-          "/shop": (BuildContext context) => new ShopPage(),
-          "/my": (BuildContext context) => new MyPage(),
-        },
-        home: new MainPageWidget());
+      theme: ThemeData(
+        textTheme: TextTheme(
+          headline: TextStyle(
+            color: Colors.red,
+            fontSize: 30.0,
+          )
+        ),
+        backgroundColor: Colors.brown,
+      ),
+      debugShowCheckedModeBanner: false,
+      routes: <String, WidgetBuilder>{
+        "/list": (BuildContext context) => new RandomWords(),
+        "/home": (BuildContext context) => new HomePage(),
+        "/msg": (BuildContext context) => new MsgPage(),
+        "/shop": (BuildContext context) => new ShopPage(),
+        "/my": (BuildContext context) => new MyPage(),
+      },
+      home: new MainPageWidget()
+    );
   }
 }
 
@@ -107,7 +117,7 @@ class MainPageState extends State<MainPageWidget> {
     return Scaffold(
       appBar: new AppBar(
         title: new Text("主页"),
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.blueGrey,
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.widgets),

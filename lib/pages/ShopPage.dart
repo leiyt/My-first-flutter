@@ -10,15 +10,148 @@ class ShopPage extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
-        body: new Center(
-            // child:new Text("商店")
-            child: listWrap),
+        body: new ListView(
+            children: <Widget>[
+              new Row(
+                children: <Widget>[
+                  new Expanded(
+                    child: new Container(
+                      child: new Container(
+                        color: Colors.black,
+                        child: new Column(
+                          children: <Widget>[
+                            new Container(
+                              decoration: BoxDecoration(
+                                // border: new Border.all(width: 4,color: Colors.black),
+                              ),
+                              width: 200,
+                              child: new FittedBox(
+                                fit: BoxFit.fitWidth,
+                                child: new Image.asset('images/bluebg.jpg'),
+                              ),
+                            ),
+                            new Text('这是一张很好看的图片',style: TextStyle(fontSize: 13,color: Colors.white),),
+                            new Row(
+                              children: <Widget>[
+                                new Container(
+                                  margin: new EdgeInsets.fromLTRB(10, 5, 20, 5),
+                                  child: new Text('价格：￥168:00',style: TextStyle(fontSize: 15,color: Colors.red),),
+                                ),
+                                new Icon(Icons.shopping_cart,size: 16,color: Colors.red,)
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      padding: new EdgeInsets.all(10)
+                    ),
+                  ),
+                  new Expanded(
+                    child: new Container(
+                      // color: Colors.green,
+                      child: new Container(
+                        color: Colors.white,
+                        child: new Column(
+                          children: <Widget>[
+                            new Container(
+                              decoration: BoxDecoration(
+                                border: new Border.all(width: 4,color: Colors.white),
+                              ),
+                              width: 200,
+                              child: new FittedBox(
+                                fit: BoxFit.fitWidth,
+                                child: new Image.asset('images/black.jpg'),
+                              ),
+                            ),
+                            new Text('这是一张很好看的图片',style: TextStyle(fontSize: 13),),
+                            new Row(
+                              children: <Widget>[
+                                new Container(
+                                  margin: new EdgeInsets.fromLTRB(10, 5, 20, 5),
+                                  child: new Text('价格：￥168:00',style: TextStyle(fontSize: 15,color: Colors.red),),
+                                ),
+                                new Icon(Icons.shopping_cart,size: 16,color: Colors.red,)
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      padding: new EdgeInsets.all(10)
+                    ),
+                  )
+                ],
+              ),
+              new Row(
+                children: <Widget>[
+                  new Expanded(
+                    child: new Container(
+                      child: new Container(
+                        height: 160, color: Colors.red,
+                      ),
+                      padding: new EdgeInsets.all(10)
+                    ),
+                  ),
+                  new Expanded(
+                    child: new Container(
+                      child: new Container(
+                        height: 160, color: Colors.black,
+                      ),
+                      padding: new EdgeInsets.all(10)
+                    ),
+                  ),
+                ],
+              ),
+              new Row(
+                children: <Widget>[
+                  new Expanded(
+                    child: new Container(
+                      child: new Container(
+                        height: 160, color: Colors.blue,
+                      ),
+                      padding: new EdgeInsets.all(10)
+                    ),
+                  ),
+                  new Expanded(
+                    child: new Container(
+                      child: new Container(
+                        height: 160, color: Colors.lightGreenAccent,
+                      ),
+                      padding: new EdgeInsets.all(10)
+                    ),
+                  ),
+                ],
+              ),
+              new Row(
+                children: <Widget>[
+                  new Expanded(
+                    child: new Container(
+                      child: new Container(
+                        height: 160, color: Colors.green[400],
+                      ),
+                      padding: new EdgeInsets.all(10)
+                    ),
+                  ),
+                  new Expanded(
+                    child: new Container(
+                      child: new Container(
+                        height: 160, color: Colors.lightBlueAccent,
+                      ),
+                      padding: new EdgeInsets.all(10)
+                    ),
+                  ),
+                ],
+              ),
+              
+            ],
+        ),
       ),
     );
   }
 }
 
-var listWrap = new Wrap(
+
+
+var listWarp = new Wrap(
   spacing: 8.0, // gap between adjacent chips
   runSpacing: 4.0, // gap between lines
   children: <Widget>[
@@ -64,3 +197,8 @@ var listWrap = new Wrap(
     ),
   ],
 );
+
+
+
+/* ----------------------- */
+

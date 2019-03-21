@@ -34,9 +34,99 @@ class HomePage extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
-        body: new Center(
-          child:new Text("首页")
-          
+        body: new Container(
+          // padding: new EdgeInsets.all(15),
+          child: new ListView(
+            padding: const EdgeInsets.all(15.0),
+            children: <Widget>[
+              new Text('图片列表',textAlign: TextAlign.center,style:TextStyle(fontSize: 20)),
+              new Container(
+                margin: new EdgeInsets.fromLTRB(0,10,0,10),
+                width: 750,
+                height: 120,
+                child: new AspectRatio(
+                  aspectRatio: 1.5,
+                  child: new Container(
+                    color: Colors.blueGrey,
+                  ),
+                ),
+                // child: new FittedBox(
+                //   fit: BoxFit.fitWidth,
+                //   alignment: Alignment.center,
+                //   child: new Container(
+                //     color: Colors.blueGrey,
+                //     child: new Image.asset('images/bpbg.jpg'),
+                //   ),
+                // ),
+              ),
+              new Container(
+                margin: new EdgeInsets.fromLTRB(0,10,0,10),
+                width: 750,
+                height: 120,
+                child: new FittedBox(
+                  fit: BoxFit.fitWidth,
+                  alignment: Alignment.center,
+                  child: new Container(
+                    color: Colors.blueGrey,
+                    child: new Image.asset('images/timbg.jpg'),
+                  ),
+                ),
+              ),
+              new Container(
+                margin: new EdgeInsets.fromLTRB(0,10,0,10),
+                width: 750,
+                height: 120,
+                child: new FittedBox(
+                  fit: BoxFit.fitWidth,
+                  alignment: Alignment.center,
+                  child: new Container(
+                    color: Colors.blueGrey,
+                    child: new Image.asset('images/bluebg.jpg'),
+                  ),
+                ),
+              ),
+              new Container(
+                margin: new EdgeInsets.fromLTRB(0,10,0,10),
+                width: 750,
+                height: 120,
+                child: new FittedBox(
+                  fit: BoxFit.fitWidth,
+                  alignment: Alignment.center,
+                  child: new Container(
+                    color: Colors.blueGrey,
+                    child: new Image.asset('images/black.jpg'),
+                  ),
+                ),
+              ), 
+              new Container(
+                margin: new EdgeInsets.fromLTRB(0,10,0,10),
+                width: 750,
+                height: 120,
+                child: new FittedBox(
+                  fit: BoxFit.fitWidth,
+                  alignment: Alignment.center,
+                  child: new Container(
+                    color: Colors.blueGrey,
+                    child: new Image.asset('images/bpbg.jpg'),
+                  ),
+                ),
+              ),            
+              new Container(
+                margin: new EdgeInsets.fromLTRB(0,10,0,10),
+                width: 750,
+                height: 120,
+                child: new FittedBox(
+                  fit: BoxFit.fitWidth,
+                  alignment: Alignment.center,
+                  child: new Container(
+                    color: Colors.blueGrey,
+                    child: new Image.asset('images/timbg.jpg'),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          // child:new Text("首页")
         ),
       ),
     );

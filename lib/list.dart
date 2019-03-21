@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-// import 'box.dart';
+// import 'home.dart';
+
 
 class RandomWords extends StatefulWidget {
   @override
@@ -23,10 +24,29 @@ class RandomWordsState extends State {
     // RandomWordsState方法的实现==》随机生成个一个单词
     // final wordPair = new WordPair.random();
     // return new Text(wordPair.asPascalCase);
+    // return new MaterialApp(
+    //   home: new Scaffold(
+    //     appBar: new AppBar(
+    //       title: new Text("words list"),
+    //     backgroundColor: Colors.brown,
+    //     actions: <Widget>[
+    //       new IconButton(
+    //           icon: new Icon(Icons.import_contacts), onPressed: _pushSaved),
+    //       new IconButton(icon: new Icon(Icons.home), onPressed: _toHome),
+    //       new IconButton(icon: new Icon(Icons.settings), onPressed: _setting),
+    //     ],
+    //     ),
+    //     body: _buildSuggestions(),
+    //   ),
+    //   routes: <String, WidgetBuilder>{
+    //     "/main": (BuildContext context) => new MainPage(),
+    //   }
+    // );
+
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("words list"),
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.blueGrey,
         actions: <Widget>[
           new IconButton(
               icon: new Icon(Icons.import_contacts), onPressed: _pushSaved),
@@ -97,16 +117,24 @@ class RandomWordsState extends State {
                 .push(new MaterialPageRoute(builder: (context) {
               return new Scaffold(
                 appBar: new AppBar(
-                  backgroundColor: Colors.brown,
+                  backgroundColor: Colors.blueGrey,
                   title: new Text("点击的单词"),
                 ),
                 body: new Container(
                   padding: const EdgeInsets.all(10),
-                  child: new Row(
-                    children: <Widget>[
-                      new Icon(Icons.add_shopping_cart),
-                      new Text(pair.asPascalCase),
-                    ],
+                  child: new Container(
+                      padding: new EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        border: new Border.all(width:2,color:Colors.blueGrey)
+                      ),
+                      child: new Row(
+                        children: <Widget>[
+                          new Expanded(
+                            child: new Text('你点击的单词是： '+pair.asPascalCase,style: TextStyle(fontSize: 16,color: Colors.blueGrey),),                          ),
+                          new Icon(Icons.add_shopping_cart,color: Colors.blueGrey),
+                        ],
+                      ),
+                     
                   ),
                 ),
               );
@@ -123,7 +151,7 @@ class RandomWordsState extends State {
       //创建一个Scaffold容器
       return new Scaffold(
         appBar: new AppBar(
-          backgroundColor: Colors.brown,
+          backgroundColor: Colors.blueGrey,
           title: new Text('我收藏的单词'),
           actions: <Widget>[
             new IconButton(
@@ -151,6 +179,9 @@ void _setting() {
 
 void _toHome() {
   print('去首页');
+  // Navigator.pop('/main')
+  // Navigator.of(context).pushNamed('/main');
+  
   // Navigator.of(context).push(new MaterialPageRoute(
   //   builder: (context) {
   //     return new Scaffold(

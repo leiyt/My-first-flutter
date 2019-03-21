@@ -11,9 +11,26 @@ class MsgPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
         body: new Center(
-          child: new ListView(
-            // children: <Widget>[msg1, msg2, msg3, msg4, msg5],
-            // children: msgItem,
+          child: new ListView.builder(
+            padding: new EdgeInsets.all(5.0),
+            itemExtent: 50.0,
+            itemBuilder: (BuildContext context, int index) {
+              return new Row(
+                children: <Widget>[
+                  new Icon(Icons.arrow_forward,color: Colors.blueGrey,),
+                  new Expanded(
+                    child: new Container(
+                      padding: new EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      decoration: BoxDecoration(
+                        border: new Border.all(width: 1,color: Colors.blueGrey)
+                      ),
+                      child: new Text("你收到一条新消息，请查看！ $index"),
+                    ),
+                  ),
+                  new Icon(Icons.audiotrack,color: Colors.blueGrey)
+                ],
+              );
+            },
           ),
         ),
       ),
@@ -60,3 +77,22 @@ var msgItem = ListTile.divideTiles(
   // context: context,
   tiles: tiles,
 ).toList();
+
+
+
+List<Widget> _list = new List();
+
+
+
+// Widget buildListData(context, strItem, iconItem) {
+//   for (int i = 0; i < strItems.length; i++) => _list.add(buildListData(context, strItems[i], iconItems[i]));
+// }
+// 添加分割线
+// var divideList = ListTile.divideTiles(context: context, tiles: _list).toList();
+// body: new Scrollbar(
+//     child: new ListView(
+//         // 添加ListView控件
+// //        children: _list,    // 无分割线
+//         children: divideList, // 添加分割线
+//     ),
+// );
