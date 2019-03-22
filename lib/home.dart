@@ -119,7 +119,7 @@ class MainPageState extends State<MainPageWidget> {
     return Scaffold(
       appBar: new AppBar(
         title: new Text("主页"),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.black,
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.widgets),

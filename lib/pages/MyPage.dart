@@ -30,7 +30,7 @@ class MyPageState extends State<MyPage> {
       home: new Scaffold(
         body: new Center(
           child: new GridView.count(
-            padding: new EdgeInsets.all(15),
+            padding: new EdgeInsets.all(10),
             primary: false,
             crossAxisSpacing: 10,
             crossAxisCount: 2,
@@ -38,51 +38,61 @@ class MyPageState extends State<MyPage> {
               new Container(
                 color: Colors.blueAccent,
                 padding: new EdgeInsets.all(10),
+                margin: new EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
               ),
               new Container(
                 color: Colors.red,
                 padding: new EdgeInsets.all(10),
+                margin: new EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
               ),
               new Container(
                 color: Colors.yellow,
                 padding: new EdgeInsets.all(10),
+                margin: new EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
               ),
               new Container(
                 color: Colors.black,
                 padding: new EdgeInsets.all(10),
+                margin: new EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
               ),
               new Container(
                 color: Colors.green,
                 padding: new EdgeInsets.all(10),
+                margin: new EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
               ),
               new Container(
                 color: Colors.blueAccent,
                 padding: new EdgeInsets.all(10),
+                margin: new EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
               ),
               new Container(
                 color: Colors.brown,
                 padding: new EdgeInsets.all(10),
+                margin: new EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
               ),
               new Container(
                 color: Colors.redAccent,
                 padding: new EdgeInsets.all(10),
+                margin: new EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
               ),
               new Container(
                 color: Colors.black45,
                 padding: new EdgeInsets.all(10),
+                margin: new EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
               ),
               new Container(
                 color: Colors.green,
                 padding: new EdgeInsets.all(10),
+                margin: new EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
               ),
             ],
