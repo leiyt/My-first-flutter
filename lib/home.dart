@@ -6,6 +6,7 @@ import 'pages/HomePage.dart';
 import 'pages/ShopPage.dart';
 import 'pages/MyPage.dart';
 import 'package:startup_namer/list.dart';
+import 'myapp.dart';
 // import 'pages/Demo1.dart';
 
 class MainPage extends StatelessWidget {
@@ -28,6 +29,7 @@ class MainPage extends StatelessWidget {
         "/msg": (BuildContext context) => new MsgPage(),
         "/shop": (BuildContext context) => new ShopPage(),
         "/my": (BuildContext context) => new MyPage(),
+        "/myapp": (BuildContext context) => new MyHomePage(),
       },
       home: new MainPageWidget()
     );
@@ -126,21 +128,21 @@ class MainPageState extends State<MainPageWidget> {
             },
           ),
           new IconButton(
-            icon: new Icon(Icons.view_list),
+            icon: new Icon(Icons.home),
             onPressed: () {
               Navigator.of(context).pushNamed("/home");
             },
           ),
           new IconButton(
-            icon: new Icon(Icons.view_list),
+            icon: new Icon(Icons.insert_comment),
             onPressed: () {
               Navigator.of(context).pushNamed("/msg");
             },
           ),
           new IconButton(
-            icon: new Icon(Icons.view_list),
+            icon: new Icon(Icons.import_contacts),
             onPressed: () {
-              Navigator.of(context).pushNamed("/shop");
+              Navigator.of(context).pushNamed("/myapp");
             },
           ),
           new IconButton(

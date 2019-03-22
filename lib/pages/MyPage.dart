@@ -1,27 +1,146 @@
 import 'package:flutter/material.dart';
 import 'package:startup_namer/list.dart';
 
-class MyPage extends StatelessWidget {
+/* 动态装置StatefulWidget--MyPage */
+class MyPage extends StatefulWidget {
+  State<StatefulWidget> createState() {
+    return new MyPageState();
+  }
+}
+
+class MyPageState extends State<MyPage> {
   // final parentContext;
   // MyPage(this.parentContext);
+  var check = false;
+  bool isCheck = false;
+  List<bool> isChecks = [false, false];
 
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter Demo',
+      title: '个人中心',
       theme: new ThemeData(
         primarySwatch: Colors.brown,
       ),
       debugShowCheckedModeBanner: false,
       // home: new MyPage(parentContext),
-      routes: <String,WidgetBuilder>{
-        "/list":(BuildContext context)=>new RandomWords(),
+      routes: <String, WidgetBuilder>{
+        "/list": (BuildContext context) => new RandomWords(),
       },
       home: new Scaffold(
-        body: new Center(child:new Text("个人中心")),
+        body: new Center(
+          child: new GridView.count(
+            padding: new EdgeInsets.all(15),
+            primary: false,
+            crossAxisSpacing: 10,
+            crossAxisCount: 2,
+            children: <Widget>[
+              new Container(
+                color: Colors.blueAccent,
+                padding: new EdgeInsets.all(10),
+                child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
+              ),
+              new Container(
+                color: Colors.red,
+                padding: new EdgeInsets.all(10),
+                child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
+              ),
+              new Container(
+                color: Colors.yellow,
+                padding: new EdgeInsets.all(10),
+                child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
+              ),
+              new Container(
+                color: Colors.black,
+                padding: new EdgeInsets.all(10),
+                child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
+              ),
+              new Container(
+                color: Colors.green,
+                padding: new EdgeInsets.all(10),
+                child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
+              ),
+              new Container(
+                color: Colors.blueAccent,
+                padding: new EdgeInsets.all(10),
+                child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
+              ),
+              new Container(
+                color: Colors.brown,
+                padding: new EdgeInsets.all(10),
+                child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
+              ),
+              new Container(
+                color: Colors.redAccent,
+                padding: new EdgeInsets.all(10),
+                child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
+              ),
+              new Container(
+                color: Colors.black45,
+                padding: new EdgeInsets.all(10),
+                child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
+              ),
+              new Container(
+                color: Colors.green,
+                padding: new EdgeInsets.all(10),
+                child: new Text('Grides Item',style: TextStyle(color:Colors.white)),
+              ),
+            ],
+          )
+          // child: new ListView(
+          //   children: <Widget>[
+          //     new Center(
+          //       child: new CheckboxListTile(
+          //           value: isCheck,
+          //           title: new Text('全选'),
+          //           controlAffinity: ListTileControlAffinity.platform,
+          //           onChanged: (bool) {
+          //             setState(() {
+          //               isCheck = bool;
+          //             });
+          //           }),
+          //     ),
+          //     new Center(
+          //       child: new CheckboxListTile(
+          //           value: isCheck,
+          //           title: new Text('选项1'),
+          //           controlAffinity: ListTileControlAffinity.platform,
+          //           onChanged: (bool) {
+          //             setState(() {
+          //               isCheck = bool;
+          //             });
+          //           }),
+          //     ),
+          //     new Center(
+          //       child: new CheckboxListTile(
+          //           value: isCheck,
+          //           title: new Text('选项1'),
+          //           controlAffinity: ListTileControlAffinity.platform,
+          //           onChanged: (bool) {
+          //             setState(() {
+          //               isCheck = bool;
+          //             });
+          //           }),
+          //     ),
+          //     new Center(
+          //       child: new CheckboxListTile(
+          //           value: isChecks[1],
+          //           title: new Text('选项1'),
+          //           controlAffinity: ListTileControlAffinity.platform,
+          //           onChanged: (bool) {
+          //             setState(() {
+          //               isChecks[1] = bool;
+          //             });
+          //           }),
+          //     )
+          //   ],
+          // ),
+        ),
       ),
     );
   }
+
+  // void setState(Null Function() value) { }
 }
 
 // class PageWidget extends StatefulWidget {
@@ -49,5 +168,3 @@ class MyPage extends StatelessWidget {
 //     // },));
 //   }
 // }
-
-

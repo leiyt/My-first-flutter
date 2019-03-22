@@ -10,39 +10,221 @@ class MsgPage extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
-        body: new Center(
-          child: new ListView.builder(
-            padding: new EdgeInsets.all(5.0),
-            itemExtent: 50.0,
-            itemBuilder: (BuildContext context, int index) {
-              return new Row(
-                children: <Widget>[
-                  new Icon(Icons.arrow_forward,color: Colors.blueGrey,),
-                  new Expanded(
-                    child: new Container(
-                      padding: new EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      decoration: BoxDecoration(
-                        border: new Border.all(width: 1,color: Colors.blueGrey)
-                      ),
-                      child: new Text("你收到一条新消息，请查看！ $index"),
-                    ),
-                  ),
-                  new Icon(Icons.audiotrack,color: Colors.blueGrey)
-                ],
-              );
-            },
+        body: new Container(
+          margin: new EdgeInsets.symmetric(vertical: 20),
+          // height: 200,
+          child: new ListView(
+            // scrollDirection: Axis.horizontal,
+            children: <Widget>[cardList],
           ),
+          // child: new Scrollbar(
+          //   child: new ListView.builder(
+          //     padding: new EdgeInsets.all(5.0),
+          //     itemExtent: 50.0,
+          //     itemBuilder: (BuildContext context, int index) {
+          //       return new Row(
+          //         children: <Widget>[
+          //           new Icon(
+          //             Icons.arrow_forward,
+          //             color: Colors.blueGrey,
+          //           ),
+          //           new Expanded(
+          //             child: new Container(
+          //               padding: new EdgeInsets.fromLTRB(10, 0, 10, 0),
+          //               decoration: BoxDecoration(
+          //                   border: new Border.all(
+          //                       width: 1, color: Colors.blueGrey)),
+          //               child: new Text("你收到一条新消息，请查看！ $index"),
+          //             ),
+          //           ),
+          //           new Icon(Icons.audiotrack, color: Colors.blueGrey)
+          //         ],
+          //       );
+          //     },
+          //   ),
+          // ),
         ),
       ),
     );
   }
 }
 
-class msg {
+
+var cardList = new Column(
+  children: <Widget>[
+    new Card(
+      // color: Colors.blueGrey,
+      child: new Column(
+        children: <Widget>[
+          new ListTile(
+            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
+            subtitle: new Text('新消息1',style: TextStyle(color: Colors.blueGrey)),
+            leading: new Icon(Icons.message,color:Colors.blueGrey),
+          ),
+          new Divider(),
+          new Container(
+            padding: new EdgeInsets.all(16),
+            child: new Row(
+              children: <Widget>[
+                new Expanded(
+                  child: new Text('来自某某的消息'),
+                ),
+                new Icon(Icons.people)
+              ],
+            ),
+          )
+        ]
+      ),
+    ),
+    new Card(
+      child: new Column(
+        children: <Widget>[
+          new ListTile(
+            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
+            subtitle: new Text('新消息2',style: TextStyle(color: Colors.blueGrey)),
+            leading: new Icon(Icons.message,color:Colors.blueGrey),
+          ),
+          new Divider(),
+          new Container(
+            padding: new EdgeInsets.all(16),
+            child: new Row(
+              children: <Widget>[
+                new Expanded(
+                  child: new Text('来自某某的消息'),
+                ),
+                new Icon(Icons.people)
+              ],
+            ),
+          )
+        ]
+      ),
+    ),
+    new Card(
+      child: new Column(
+        children: <Widget>[
+          new ListTile(
+            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
+            subtitle: new Text('新消息3'),
+            leading: new Icon(Icons.message,color:Colors.blueGrey),
+          ),
+          new Divider(),
+          new Container(
+            padding: new EdgeInsets.all(16),
+            child: new Row(
+              children: <Widget>[
+                new Expanded(
+                  child: new Text('来自某某的消息'),
+                ),
+                new Icon(Icons.people)
+              ],
+            ),
+          )
+        ]
+      ),
+    ),
+    new Card(
+      child: new Column(
+        children: <Widget>[
+          new ListTile(
+            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
+            subtitle: new Text('新消息4',style: TextStyle(color: Colors.blueGrey)),
+            leading: new Icon(Icons.message,color:Colors.blueGrey),
+          ),
+          new Divider(),
+          new Container(
+            padding: new EdgeInsets.all(16),
+            child: new Row(
+              children: <Widget>[
+                new Expanded(
+                  child: new Text('来自某某的消息'),
+                ),
+                new Icon(Icons.people)
+              ],
+            ),
+          )
+        ]
+      ),
+    ),
+    new Card(
+      child: new Column(
+        children: <Widget>[
+          new ListTile(
+            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
+            subtitle: new Text('新消息5'),
+            leading: new Icon(Icons.message,color:Colors.blueGrey),
+          ),
+          new Divider(),
+          new Container(
+            padding: new EdgeInsets.all(16),
+            child: new Row(
+              children: <Widget>[
+                new Expanded(
+                  child: new Text('来自某某的消息'),
+                ),
+                new Icon(Icons.people)
+              ],
+            ),
+          )
+        ]
+      ),
+    ),
+    new Card(
+      child: new Column(
+        children: <Widget>[
+          new ListTile(
+            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
+            subtitle: new Text('新消息6'),
+            leading: new Icon(Icons.message,color:Colors.blueGrey),
+          ),
+          new Divider(),
+          new Container(
+            padding: new EdgeInsets.all(16),
+            child: new Row(
+              children: <Widget>[
+                new Expanded(
+                  child: new Text('来自某某的消息'),
+                ),
+                new Icon(Icons.people)
+              ],
+            ),
+          )
+        ]
+      ),
+    ),
+    new Card(
+      child: new Column(
+        children: <Widget>[
+          new ListTile(
+            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
+            subtitle: new Text('新消息7',style: TextStyle(color: Colors.blueGrey)),
+            leading: new Icon(Icons.message,color:Colors.blueGrey),
+          ),
+          new Divider(),
+          new Container(
+            padding: new EdgeInsets.all(16),
+            child: new Row(
+              children: <Widget>[
+                new Expanded(
+                  child: new Text('来自某某的消息'),
+                ),
+                new Icon(Icons.people)
+              ],
+            ),
+          )
+        ]
+      ),
+    ),
+  ],
+);
+
+
+
+
+class Msg {
   String name;
   String value;
 
-  msg(this.name, this.value) {
+  Msg(this.name, this.value) {
     if (name == null || value == null) {
       throw ArgumentError("Words of WordPair cannot be null. "
           "Received: '$name', '$value'");
@@ -55,44 +237,92 @@ class msg {
 }
 
 var msgData = [
-  new msg('msg', '新消息1'),
-  new msg('msg', '新消息2'),
-  new msg('msg', '新消息3'),
+  new Msg('msg', '新消息1'),
+  new Msg('msg', '新消息2'),
+  new Msg('msg', '新消息3'),
 ];
 
-final tiles = msgData.map((msg m) {
+final tiles = msgData.map((Msg m) {
   var listTile = new ListTile(
-    leading: new Icon(Icons.ac_unit),
-    title: new Text(
-      m.value,
-      style: new TextStyle(fontSize: 20),
-    ),
-    trailing: new Icon(Icons.chevron_right),
-    selected: true,
+    leading: new Icon(Icons.accessibility, color: Colors.blueGrey), // item 前置图标
+    title: new Text(m.value, style: TextStyle(fontSize: 20)), // item 标题
+    subtitle: new Text('subtitle'), // item 副标题
+    trailing: new Icon(Icons.adb, color: Colors.blueGrey), // item 后置图标
+    isThreeLine: false, // item 是否三行显示
+    dense: new bool.fromEnvironment('name'), // item 直观感受是整体大小
+    contentPadding: new EdgeInsets.all(15), // item 内容内边距
+    enabled: true,
+    onTap: () {
+      print('点击了');
+    }, // item onTap 点击事件
+    onLongPress: () {
+      print('长按');
+    }, // item onLongPress 长按事件
+    selected: false, // item 是否选中状态
   );
   return listTile;
 });
 
-var msgItem = ListTile.divideTiles(
-  // context: context,
-  tiles: tiles,
-).toList();
 
 
+// const ListTile({
+//     Key key,
+//     this.leading,              // item 前置图标
+//     this.title,                // item 标题
+//     this.subtitle,             // item 副标题
+//     this.trailing,             // item 后置图标
+//     this.isThreeLine = false,  // item 是否三行显示
+//     this.dense,                // item 直观感受是整体大小
+//     this.contentPadding,       // item 内容内边距
+//     this.enabled = true,
+//     this.onTap,                // item onTap 点击事件
+//     this.onLongPress,          // item onLongPress 长按事件
+//     this.selected = false,     // item 是否选中状态
+// });
 
-List<Widget> _list = new List();
 
+List<String> strItems = <String>[
+    '图标 -> keyboard', '图标 -> print',
+    '图标 -> router', '图标 -> pages',
+    '图标 -> zoom_out_map', '图标 -> zoom_out',
+    '图标 -> youtube_searched_for', '图标 -> wifi_tethering',
+    '图标 -> wifi_lock', '图标 -> widgets',
+    '图标 -> weekend', '图标 -> web',
+    '图标 -> accessible', '图标 -> ac_unit',
+];
 
+List<Icon> iconItems = <Icon>[
+    new Icon(Icons.keyboard), new Icon(Icons.print),
+    new Icon(Icons.router), new Icon(Icons.pages),
+    new Icon(Icons.zoom_out_map), new Icon(Icons.zoom_out),
+    new Icon(Icons.youtube_searched_for), new Icon(Icons.wifi_tethering),
+    new Icon(Icons.wifi_lock), new Icon(Icons.widgets),
+    new Icon(Icons.weekend), new Icon(Icons.web),
+    new Icon(Icons.accessible), new Icon(Icons.ac_unit),
+];
 
-// Widget buildListData(context, strItem, iconItem) {
-//   for (int i = 0; i < strItems.length; i++) => _list.add(buildListData(context, strItems[i], iconItems[i]));
-// }
-// 添加分割线
-// var divideList = ListTile.divideTiles(context: context, tiles: _list).toList();
-// body: new Scrollbar(
-//     child: new ListView(
-//         // 添加ListView控件
-// //        children: _list,    // 无分割线
-//         children: divideList, // 添加分割线
-//     ),
-// );
+Widget buildListData(BuildContext context, String strItem, Icon iconItem) {
+    return new ListTile(
+      isThreeLine: false,
+      leading: iconItem,
+      title: new Text(strItem),
+      trailing: new Icon(Icons.keyboard_arrow_right),
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return new AlertDialog(
+              title: new Text(
+                'ListViewDemo',
+                style: new TextStyle(
+                  color: Colors.black54,
+                  fontSize: 18.0,
+                ),
+              ),
+              content: new Text('您选择的item内容为:$strItem'),
+            );
+          },
+        );
+      },
+    );
+}

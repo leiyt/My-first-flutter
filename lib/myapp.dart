@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'home.dart';
 
 
 
@@ -49,19 +50,35 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var spacer = new SizedBox(height: 32.0);
 
-    return new Scaffold(
-      body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text('Your current IP address is:'),
-            new Text('$_ipAddress.'),
-            spacer,
-            new RaisedButton(
-              onPressed: _getIPAddress,
-              child: new Text('Get IP address'),
-            ),
+    return new MaterialApp(
+      routes: <String, WidgetBuilder>{
+        "/home": (BuildContext context) => new MainPage(),
+      },
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('嗯嗯呢'),
+          actions: <Widget>[
+            new IconButton(
+              icon: new Icon(Icons.home),
+              onPressed: (){
+                Navigator.of(context).pushNamed('/home');
+              },
+            )
           ],
+        ),
+        body: new Center(
+          child: new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new Text('Your current IP address is:'),
+              new Text('$_ipAddress.'),
+              spacer,
+              new RaisedButton(
+                onPressed: _getIPAddress,
+                child: new Text('Get IP address'),
+              ),
+            ],
+          ),
         ),
       ),
     );
