@@ -42,7 +42,7 @@ class HomeState extends State<HomePage> {
 //   }
 // }
 
-var materialHome = new MaterialApp(
+Widget materialHome = new MaterialApp(
   title: 'Flutter Demo',
   routes: <String, WidgetBuilder>{
     "/main": (BuildContext context) => new MainPage(),

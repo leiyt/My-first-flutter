@@ -1,224 +1,194 @@
 import 'package:flutter/material.dart';
 
-class MsgPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Flutter Demo',
-      theme: new ThemeData(
-        primarySwatch: Colors.brown,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: new Scaffold(
-        body: new Container(
-          margin: new EdgeInsets.symmetric(vertical: 20),
-          // height: 200,
-          child: new ListView(
-            // scrollDirection: Axis.horizontal,
-            children: <Widget>[cardList],
-          ),
-          // child: new Scrollbar(
-          //   child: new ListView.builder(
-          //     padding: new EdgeInsets.all(5.0),
-          //     itemExtent: 50.0,
-          //     itemBuilder: (BuildContext context, int index) {
-          //       return new Row(
-          //         children: <Widget>[
-          //           new Icon(
-          //             Icons.arrow_forward,
-          //             color: Colors.blueGrey,
-          //           ),
-          //           new Expanded(
-          //             child: new Container(
-          //               padding: new EdgeInsets.fromLTRB(10, 0, 10, 0),
-          //               decoration: BoxDecoration(
-          //                   border: new Border.all(
-          //                       width: 1, color: Colors.blueGrey)),
-          //               child: new Text("你收到一条新消息，请查看！ $index"),
-          //             ),
-          //           ),
-          //           new Icon(Icons.audiotrack, color: Colors.blueGrey)
-          //         ],
-          //       );
-          //     },
-          //   ),
-          // ),
-        ),
-      ),
-    );
+class MsgPage extends StatefulWidget {
+  State<StatefulWidget> createState() {
+    return new MsgPageState();
   }
 }
 
+class MsgPageState extends State<MsgPage> {
+  @override
+  Widget build(BuildContext context) {
+    return materialMsg;
+  }
+}
 
-var cardList = new Column(
+Widget materialMsg = new MaterialApp(
+  title: 'Flutter Demo',
+  theme: new ThemeData(
+    primarySwatch: Colors.brown,
+  ),
+  debugShowCheckedModeBanner: false,
+  home: new Scaffold(
+    body: new Container(
+      margin: new EdgeInsets.symmetric(vertical: 20),
+      child: new ListView(
+        children: <Widget>[cardList],
+      ),
+    ),
+  ),
+);
+
+Widget cardList = new Column(
+// var cardList = new Column(
   children: <Widget>[
     new Card(
       // color: Colors.blueGrey,
-      child: new Column(
-        children: <Widget>[
-          new ListTile(
-            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
-            subtitle: new Text('新消息1',style: TextStyle(color: Colors.blueGrey)),
-            leading: new Icon(Icons.message,color:Colors.blueGrey),
+      child: new Column(children: <Widget>[
+        new ListTile(
+          title: new Text('你有一条新消息',
+              style: TextStyle(color: Colors.blueGrey, fontSize: 20)),
+          subtitle: new Text('新消息1', style: TextStyle(color: Colors.blueGrey)),
+          leading: new Icon(Icons.message, color: Colors.blueGrey),
+        ),
+        new Divider(),
+        new Container(
+          padding: new EdgeInsets.all(16),
+          child: new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new Text('来自某某的消息'),
+              ),
+              new Icon(Icons.people)
+            ],
           ),
-          new Divider(),
-          new Container(
-            padding: new EdgeInsets.all(16),
-            child: new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new Text('来自某某的消息'),
-                ),
-                new Icon(Icons.people)
-              ],
-            ),
-          )
-        ]
-      ),
+        )
+      ]),
     ),
     new Card(
-      child: new Column(
-        children: <Widget>[
-          new ListTile(
-            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
-            subtitle: new Text('新消息2',style: TextStyle(color: Colors.blueGrey)),
-            leading: new Icon(Icons.message,color:Colors.blueGrey),
+      child: new Column(children: <Widget>[
+        new ListTile(
+          title: new Text('你有一条新消息',
+              style: TextStyle(color: Colors.blueGrey, fontSize: 20)),
+          subtitle: new Text('新消息2', style: TextStyle(color: Colors.blueGrey)),
+          leading: new Icon(Icons.message, color: Colors.blueGrey),
+        ),
+        new Divider(),
+        new Container(
+          padding: new EdgeInsets.all(16),
+          child: new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new Text('来自某某的消息'),
+              ),
+              new Icon(Icons.people)
+            ],
           ),
-          new Divider(),
-          new Container(
-            padding: new EdgeInsets.all(16),
-            child: new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new Text('来自某某的消息'),
-                ),
-                new Icon(Icons.people)
-              ],
-            ),
-          )
-        ]
-      ),
+        )
+      ]),
     ),
     new Card(
-      child: new Column(
-        children: <Widget>[
-          new ListTile(
-            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
-            subtitle: new Text('新消息3'),
-            leading: new Icon(Icons.message,color:Colors.blueGrey),
+      child: new Column(children: <Widget>[
+        new ListTile(
+          title: new Text('你有一条新消息',
+              style: TextStyle(color: Colors.blueGrey, fontSize: 20)),
+          subtitle: new Text('新消息3'),
+          leading: new Icon(Icons.message, color: Colors.blueGrey),
+        ),
+        new Divider(),
+        new Container(
+          padding: new EdgeInsets.all(16),
+          child: new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new Text('来自某某的消息'),
+              ),
+              new Icon(Icons.people)
+            ],
           ),
-          new Divider(),
-          new Container(
-            padding: new EdgeInsets.all(16),
-            child: new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new Text('来自某某的消息'),
-                ),
-                new Icon(Icons.people)
-              ],
-            ),
-          )
-        ]
-      ),
+        )
+      ]),
     ),
     new Card(
-      child: new Column(
-        children: <Widget>[
-          new ListTile(
-            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
-            subtitle: new Text('新消息4',style: TextStyle(color: Colors.blueGrey)),
-            leading: new Icon(Icons.message,color:Colors.blueGrey),
+      child: new Column(children: <Widget>[
+        new ListTile(
+          title: new Text('你有一条新消息',
+              style: TextStyle(color: Colors.blueGrey, fontSize: 20)),
+          subtitle: new Text('新消息4', style: TextStyle(color: Colors.blueGrey)),
+          leading: new Icon(Icons.message, color: Colors.blueGrey),
+        ),
+        new Divider(),
+        new Container(
+          padding: new EdgeInsets.all(16),
+          child: new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new Text('来自某某的消息'),
+              ),
+              new Icon(Icons.people)
+            ],
           ),
-          new Divider(),
-          new Container(
-            padding: new EdgeInsets.all(16),
-            child: new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new Text('来自某某的消息'),
-                ),
-                new Icon(Icons.people)
-              ],
-            ),
-          )
-        ]
-      ),
+        )
+      ]),
     ),
     new Card(
-      child: new Column(
-        children: <Widget>[
-          new ListTile(
-            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
-            subtitle: new Text('新消息5'),
-            leading: new Icon(Icons.message,color:Colors.blueGrey),
+      child: new Column(children: <Widget>[
+        new ListTile(
+          title: new Text('你有一条新消息',
+              style: TextStyle(color: Colors.blueGrey, fontSize: 20)),
+          subtitle: new Text('新消息5'),
+          leading: new Icon(Icons.message, color: Colors.blueGrey),
+        ),
+        new Divider(),
+        new Container(
+          padding: new EdgeInsets.all(16),
+          child: new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new Text('来自某某的消息'),
+              ),
+              new Icon(Icons.people)
+            ],
           ),
-          new Divider(),
-          new Container(
-            padding: new EdgeInsets.all(16),
-            child: new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new Text('来自某某的消息'),
-                ),
-                new Icon(Icons.people)
-              ],
-            ),
-          )
-        ]
-      ),
+        )
+      ]),
     ),
     new Card(
-      child: new Column(
-        children: <Widget>[
-          new ListTile(
-            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
-            subtitle: new Text('新消息6'),
-            leading: new Icon(Icons.message,color:Colors.blueGrey),
+      child: new Column(children: <Widget>[
+        new ListTile(
+          title: new Text('你有一条新消息',
+              style: TextStyle(color: Colors.blueGrey, fontSize: 20)),
+          subtitle: new Text('新消息6'),
+          leading: new Icon(Icons.message, color: Colors.blueGrey),
+        ),
+        new Divider(),
+        new Container(
+          padding: new EdgeInsets.all(16),
+          child: new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new Text('来自某某的消息'),
+              ),
+              new Icon(Icons.people)
+            ],
           ),
-          new Divider(),
-          new Container(
-            padding: new EdgeInsets.all(16),
-            child: new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new Text('来自某某的消息'),
-                ),
-                new Icon(Icons.people)
-              ],
-            ),
-          )
-        ]
-      ),
+        )
+      ]),
     ),
     new Card(
-      child: new Column(
-        children: <Widget>[
-          new ListTile(
-            title: new Text('你有一条新消息',style: TextStyle(color: Colors.blueGrey,fontSize: 20)),
-            subtitle: new Text('新消息7',style: TextStyle(color: Colors.blueGrey)),
-            leading: new Icon(Icons.message,color:Colors.blueGrey),
+      child: new Column(children: <Widget>[
+        new ListTile(
+          title: new Text('你有一条新消息',
+              style: TextStyle(color: Colors.blueGrey, fontSize: 20)),
+          subtitle: new Text('新消息7', style: TextStyle(color: Colors.blueGrey)),
+          leading: new Icon(Icons.message, color: Colors.blueGrey),
+        ),
+        new Divider(),
+        new Container(
+          padding: new EdgeInsets.all(16),
+          child: new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new Text('来自某某的消息'),
+              ),
+              new Icon(Icons.people)
+            ],
           ),
-          new Divider(),
-          new Container(
-            padding: new EdgeInsets.all(16),
-            child: new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new Text('来自某某的消息'),
-                ),
-                new Icon(Icons.people)
-              ],
-            ),
-          )
-        ]
-      ),
+        )
+      ]),
     ),
   ],
 );
-
-
-
 
 class Msg {
   String name;
@@ -263,8 +233,6 @@ final tiles = msgData.map((Msg m) {
   return listTile;
 });
 
-
-
 // const ListTile({
 //     Key key,
 //     this.leading,              // item 前置图标
@@ -280,49 +248,62 @@ final tiles = msgData.map((Msg m) {
 //     this.selected = false,     // item 是否选中状态
 // });
 
-
 List<String> strItems = <String>[
-    '图标 -> keyboard', '图标 -> print',
-    '图标 -> router', '图标 -> pages',
-    '图标 -> zoom_out_map', '图标 -> zoom_out',
-    '图标 -> youtube_searched_for', '图标 -> wifi_tethering',
-    '图标 -> wifi_lock', '图标 -> widgets',
-    '图标 -> weekend', '图标 -> web',
-    '图标 -> accessible', '图标 -> ac_unit',
+  '图标 -> keyboard',
+  '图标 -> print',
+  '图标 -> router',
+  '图标 -> pages',
+  '图标 -> zoom_out_map',
+  '图标 -> zoom_out',
+  '图标 -> youtube_searched_for',
+  '图标 -> wifi_tethering',
+  '图标 -> wifi_lock',
+  '图标 -> widgets',
+  '图标 -> weekend',
+  '图标 -> web',
+  '图标 -> accessible',
+  '图标 -> ac_unit',
 ];
 
 List<Icon> iconItems = <Icon>[
-    new Icon(Icons.keyboard), new Icon(Icons.print),
-    new Icon(Icons.router), new Icon(Icons.pages),
-    new Icon(Icons.zoom_out_map), new Icon(Icons.zoom_out),
-    new Icon(Icons.youtube_searched_for), new Icon(Icons.wifi_tethering),
-    new Icon(Icons.wifi_lock), new Icon(Icons.widgets),
-    new Icon(Icons.weekend), new Icon(Icons.web),
-    new Icon(Icons.accessible), new Icon(Icons.ac_unit),
+  new Icon(Icons.keyboard),
+  new Icon(Icons.print),
+  new Icon(Icons.router),
+  new Icon(Icons.pages),
+  new Icon(Icons.zoom_out_map),
+  new Icon(Icons.zoom_out),
+  new Icon(Icons.youtube_searched_for),
+  new Icon(Icons.wifi_tethering),
+  new Icon(Icons.wifi_lock),
+  new Icon(Icons.widgets),
+  new Icon(Icons.weekend),
+  new Icon(Icons.web),
+  new Icon(Icons.accessible),
+  new Icon(Icons.ac_unit),
 ];
 
 Widget buildListData(BuildContext context, String strItem, Icon iconItem) {
-    return new ListTile(
-      isThreeLine: false,
-      leading: iconItem,
-      title: new Text(strItem),
-      trailing: new Icon(Icons.keyboard_arrow_right),
-      onTap: () {
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return new AlertDialog(
-              title: new Text(
-                'ListViewDemo',
-                style: new TextStyle(
-                  color: Colors.black54,
-                  fontSize: 18.0,
-                ),
+  return new ListTile(
+    isThreeLine: false,
+    leading: iconItem,
+    title: new Text(strItem),
+    trailing: new Icon(Icons.keyboard_arrow_right),
+    onTap: () {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            title: new Text(
+              'ListViewDemo',
+              style: new TextStyle(
+                color: Colors.black54,
+                fontSize: 18.0,
               ),
-              content: new Text('您选择的item内容为:$strItem'),
-            );
-          },
-        );
-      },
-    );
+            ),
+            content: new Text('您选择的item内容为:$strItem'),
+          );
+        },
+      );
+    },
+  );
 }

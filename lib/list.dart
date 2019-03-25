@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-// import 'home.dart';
+import 'home.dart';
+import 'pages/HomePage.dart';
 
 
 class RandomWords extends StatefulWidget {
@@ -22,40 +23,41 @@ class RandomWordsState extends State {
 
   Widget build(BuildContext context) {
     // RandomWordsState方法的实现==》随机生成个一个单词
-    // final wordPair = new WordPair.random();
+    final wordPair = new WordPair.random();
     // return new Text(wordPair.asPascalCase);
-    // return new MaterialApp(
-    //   home: new Scaffold(
-    //     appBar: new AppBar(
-    //       title: new Text("words list"),
-    //     backgroundColor: Colors.brown,
-    //     actions: <Widget>[
-    //       new IconButton(
-    //           icon: new Icon(Icons.import_contacts), onPressed: _pushSaved),
-    //       new IconButton(icon: new Icon(Icons.home), onPressed: _toHome),
-    //       new IconButton(icon: new Icon(Icons.settings), onPressed: _setting),
-    //     ],
-    //     ),
-    //     body: _buildSuggestions(),
-    //   ),
-    //   routes: <String, WidgetBuilder>{
-    //     "/main": (BuildContext context) => new MainPage(),
-    //   }
-    // );
-
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("words list"),
-        backgroundColor: Colors.blueGrey,
+    return new MaterialApp(
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("words list"),
+        backgroundColor: Colors.brown,
         actions: <Widget>[
           new IconButton(
               icon: new Icon(Icons.import_contacts), onPressed: _pushSaved),
           new IconButton(icon: new Icon(Icons.home), onPressed: _toHome),
           new IconButton(icon: new Icon(Icons.settings), onPressed: _setting),
         ],
+        ),
+        body: _buildSuggestions(),
       ),
-      body: _buildSuggestions(),
+      routes: <String, WidgetBuilder>{
+        "/main": (BuildContext context) => new MainPage(),
+        "/home": (BuildContext context) => new HomePage(),
+      }
     );
+
+    // return new Scaffold(
+    //   appBar: new AppBar(
+    //     title: new Text("words list"),
+    //     backgroundColor: Colors.blueGrey,
+    //     actions: <Widget>[
+    //       new IconButton(
+    //           icon: new Icon(Icons.import_contacts), onPressed: _pushSaved),
+    //       new IconButton(icon: new Icon(Icons.home), onPressed: _toHome),
+    //       new IconButton(icon: new Icon(Icons.settings), onPressed: _setting),
+    //     ],
+    //   ),
+    //   body: _buildSuggestions(),
+    // );
   }
 
   //循环处理数据_suggestions并循环调用_buildRow渲染
@@ -179,17 +181,10 @@ void _setting() {
 
 void _toHome() {
   print('去首页');
-  // Navigator.pop('/main')
-  // Navigator.of(context).pushNamed('/main');
-  
-  // Navigator.of(context).push(new MaterialPageRoute(
-  //   builder: (context) {
-  //     return new Scaffold(
-  //       appBar: new AppBar(
-  //         title: new Text('home'),
-  //       ),
-  //       body: materialPageRoute2(),
-  //     );
-  //   },
-  // ));
+  // BuildContext context;
+  // Navigator.of(context).pushNamed('/home');
+  // Navigator.push(
+  //   context,
+  //   new MaterialPageRoute(builder: (context) => new MainPage())
+  // );
 }

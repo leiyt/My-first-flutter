@@ -5,34 +5,33 @@ import 'pages/MsgPage.dart';
 import 'pages/HomePage.dart';
 import 'pages/ShopPage.dart';
 import 'pages/MyPage.dart';
+import 'pages/DrivePage.dart';
 import 'package:startup_namer/list.dart';
 import 'myapp.dart';
-// import 'pages/Demo1.dart';
 
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      theme: ThemeData(
-        textTheme: TextTheme(
-          headline: TextStyle(
+        theme: ThemeData(
+          textTheme: TextTheme(
+              headline: TextStyle(
             color: Colors.red,
             fontSize: 30.0,
-          )
+          )),
+          backgroundColor: Colors.brown,
         ),
-        backgroundColor: Colors.brown,
-      ),
-      debugShowCheckedModeBanner: false,
-      routes: <String, WidgetBuilder>{
-        "/list": (BuildContext context) => new RandomWords(),
-        "/home": (BuildContext context) => new HomePage(),
-        "/msg": (BuildContext context) => new MsgPage(),
-        "/shop": (BuildContext context) => new ShopPage(),
-        "/my": (BuildContext context) => new MyPage(),
-        "/myapp": (BuildContext context) => new MyHomePage(),
-      },
-      home: new MainPageWidget()
-    );
+        debugShowCheckedModeBanner: false,
+        routes: <String, WidgetBuilder>{
+          "/list": (BuildContext context) => new RandomWords(),
+          "/home": (BuildContext context) => new HomePage(),
+          "/msg": (BuildContext context) => new MsgPage(),
+          "/shop": (BuildContext context) => new ShopPage(),
+          "/my": (BuildContext context) => new MyPage(),
+          "/drive": (BuildContext context) => new DidiSample(),
+          "/myapp": (BuildContext context) => new MyHomePage(),
+        },
+        home: new MainPageWidget());
   }
 }
 
@@ -118,6 +117,7 @@ class MainPageState extends State<MainPageWidget> {
     initData();
     return Scaffold(
       appBar: new AppBar(
+        // leading: new Icon(Icons.arrow_back),
         title: new Text("主页"),
         backgroundColor: Colors.black,
         actions: <Widget>[
@@ -125,18 +125,27 @@ class MainPageState extends State<MainPageWidget> {
             icon: new Icon(Icons.widgets),
             onPressed: () {
               Navigator.of(context).pushNamed("/list");
+              // final parentContext Context;
+              // Navigator.push(
+              //   context,
+              //   new MaterialPageRoute(builder: (context) => new RandomWords(product:context))
+              // );
             },
           ),
           new IconButton(
             icon: new Icon(Icons.home),
             onPressed: () {
-              Navigator.of(context).pushNamed("/home");
+              // Navigator.of(context).pushNamed("/home");
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => new MainPage()));
             },
           ),
           new IconButton(
             icon: new Icon(Icons.insert_comment),
             onPressed: () {
-              Navigator.of(context).pushNamed("/msg");
+              // Navigator.of(context).pushNamed("/msg");
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => new MsgPage()));
             },
           ),
           new IconButton(
@@ -148,7 +157,7 @@ class MainPageState extends State<MainPageWidget> {
           new IconButton(
             icon: new Icon(Icons.view_list),
             onPressed: () {
-              Navigator.of(context).pushNamed("/my");
+              Navigator.of(context).pushNamed("/drive");
             },
           ),
         ],
