@@ -62,90 +62,114 @@ Widget materialHome = new MaterialApp(
           new Container(
             margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
             width: 750,
-            height: 120,
             child: new AspectRatio(
-              aspectRatio: 1.5,
-              child: new Container(
-                color: Colors.blueGrey,
-              ),
-            ),
-            // child: new FittedBox(
-            //   fit: BoxFit.fitWidth,
-            //   alignment: Alignment.center,
-            //   child: new Container(
-            //     color: Colors.blueGrey,
-            //     child: new Image.asset('images/bpbg.jpg'),
-            //   ),
-            // ),
-          ),
-          new Container(
-            margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
-            width: 750,
-            height: 120,
-            child: new FittedBox(
-              fit: BoxFit.fitWidth,
-              alignment: Alignment.center,
-              child: new Container(
-                color: Colors.blueGrey,
-                child: new Image.asset('images/timbg.jpg'),
+              aspectRatio: 2.2,
+              child: new FittedBox(
+                fit: BoxFit.fitWidth,
+                alignment: Alignment.center,
+                child: new Container(
+                  child: new Image.asset('images/bpbg.jpg'),
+                ),
               ),
             ),
           ),
           new Container(
             margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
             width: 750,
-            height: 120,
-            child: new FittedBox(
-              fit: BoxFit.fitWidth,
-              alignment: Alignment.center,
-              child: new Container(
-                color: Colors.blueGrey,
-                child: new Image.asset('images/bluebg.jpg'),
+            child: new AspectRatio(
+              aspectRatio: 2.2,
+              child: new FittedBox(
+                fit: BoxFit.fitWidth,
+                alignment: Alignment.center,
+                child: new Container(
+                  child: new Image.asset('images/timbg.jpg'),
+                ),
               ),
             ),
           ),
           new Container(
             margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
             width: 750,
-            height: 120,
-            child: new FittedBox(
-              fit: BoxFit.fitWidth,
-              alignment: Alignment.center,
-              child: new Container(
-                color: Colors.blueGrey,
-                child: new Image.asset('images/black.jpg'),
+            child: new AspectRatio(
+              aspectRatio: 2.2,
+              child: new FittedBox(
+                fit: BoxFit.fitWidth,
+                alignment: Alignment.center,
+                child: new Container(
+                  child: new Image.asset('images/bluebg.jpg'),
+                ),
               ),
             ),
           ),
           new Container(
             margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
             width: 750,
-            height: 120,
-            child: new FittedBox(
-              fit: BoxFit.fitWidth,
-              alignment: Alignment.center,
-              child: new Container(
-                color: Colors.blueGrey,
-                child: new Image.asset('images/bpbg.jpg'),
+            child: new AspectRatio(
+              aspectRatio: 2.2,
+              child: new FittedBox(
+                fit: BoxFit.fitWidth,
+                alignment: Alignment.center,
+                child: new Container(
+                  child: new Image.asset('images/black.jpg'),
+                ),
               ),
             ),
           ),
           new Container(
             margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
             width: 750,
-            height: 120,
-            child: new FittedBox(
-              fit: BoxFit.fitWidth,
-              alignment: Alignment.center,
-              child: new Container(
-                color: Colors.blueGrey,
-                child: new Image.asset('images/timbg.jpg'),
+            child: new AspectRatio(
+              aspectRatio: 2.2,
+              child: new FittedBox(
+                fit: BoxFit.fitWidth,
+                alignment: Alignment.center,
+                child: new Container(
+                  child: new Image.asset('images/bpbg.jpg'),
+                ),
+              ),
+            ),
+          ),
+          new Container(
+            margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
+            width: 750,
+            child: new AspectRatio(
+              aspectRatio: 2.2,
+              child: new FittedBox(
+                fit: BoxFit.fitWidth,
+                alignment: Alignment.center,
+                child: new Container(
+                  child: new Image.asset('images/timbg.jpg'),
+                ),
               ),
             ),
           ),
         ],
       ),
       // child:new Text("首页")
+    ),
+  ),
+);
+
+var imgs = [
+  'images/bpbg.jpg',
+  'images/timbg.jpg',
+  'images/bluebg.jpg',
+  'images/black.jpg',
+  'images/bpbg.jpg',
+  'images/timbg.jpg',
+];
+
+Widget imgContanier = new Container(
+  margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
+  width: 750,
+  child: new AspectRatio(
+    aspectRatio: 2.2,
+    child: new FittedBox(
+      fit: BoxFit.fitWidth,
+      alignment: Alignment.center,
+      child: new Container(
+        child: new Image.asset('images/timbg.jpg'),
+      ),
     ),
   ),
 );
