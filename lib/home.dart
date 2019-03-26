@@ -71,7 +71,7 @@ class MainPageState extends State<MainPageWidget> {
   Text getTabTitle(int curIndex) {
     if (curIndex == _tabIndex) {
       return new Text(appBarTitles[curIndex],
-          style: new TextStyle(color: const Color(0xffd11f0e),fontSize: 14,));
+          style: new TextStyle(color: const Color(0xffd11f0e)));
     } else {
       return new Text(appBarTitles[curIndex],
           style: new TextStyle(
