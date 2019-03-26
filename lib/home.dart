@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import 'package:fluttertoast/fluttertoast.dart';
+
 import 'pages/MsgPage.dart';
 import 'pages/HomePage.dart';
 import 'pages/ShopPage.dart';
 import 'pages/MyPage.dart';
 import 'pages/DrivePage.dart';
 import 'package:startup_namer/list.dart';
-import 'myapp.dart';
 
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-        theme: ThemeData(
-          textTheme: TextTheme(
-              headline: TextStyle(
-            color: Colors.red,
-            fontSize: 30.0,
-          )),
-          backgroundColor: Colors.brown,
-        ),
-        debugShowCheckedModeBanner: false,
-        routes: <String, WidgetBuilder>{
-          "/list": (BuildContext context) => new RandomWords(),
-          "/home": (BuildContext context) => new HomePage(),
-          "/msg": (BuildContext context) => new MsgPage(),
-          "/shop": (BuildContext context) => new ShopPage(),
-          "/my": (BuildContext context) => new MyPage(),
-          "/drive": (BuildContext context) => new DidiSample(),
-          "/myapp": (BuildContext context) => new MyHomePage(),
-        },
-        home: new MainPageWidget());
+      theme: ThemeData(
+        textTheme: TextTheme(
+          headline: TextStyle(
+          color: Colors.red,
+          fontSize: 30.0,
+        )),
+        backgroundColor: Colors.brown,
+      ),
+      debugShowCheckedModeBanner: false,
+      routes: <String, WidgetBuilder>{
+        "/list": (BuildContext context) => new RandomWords(context),
+        "/home": (BuildContext context) => new HomePage(context),
+        "/msg": (BuildContext context) => new MsgPage(context),
+        "/shop": (BuildContext context) => new ShopPage(context),
+        "/my": (BuildContext context) => new MyPage(context),
+        "/drive": (BuildContext context) => new DidiSample(),
+      },
+      home: new MainPageWidget());
   }
 }
 
@@ -71,12 +71,12 @@ class MainPageState extends State<MainPageWidget> {
   Text getTabTitle(int curIndex) {
     if (curIndex == _tabIndex) {
       return new Text(appBarTitles[curIndex],
-          style: new TextStyle(color: const Color(0xff1296db)));
+          style: new TextStyle(color: const Color(0xffd11f0e),fontSize: 14,));
     } else {
       return new Text(appBarTitles[curIndex],
           style: new TextStyle(
-            color: const Color(0xff666666),
-            fontSize: 15,
+            color: const Color(0xff333333),
+            fontSize: 14,
           ));
     }
   }
@@ -92,24 +92,29 @@ class MainPageState extends State<MainPageWidget> {
      */
     tabImages = [
       [
-        getTabImage('images/ic_home_normal.png'),
-        getTabImage('images/ic_home_press.png')
+        getTabImage('images/home_gray.png'),
+        getTabImage('images/home_red.png')
       ],
       [
-        getTabImage('images/ic_shop_normal.png'),
-        getTabImage('images/ic_shop_press.png')
+        getTabImage('images/shopping_gray.png'),
+        getTabImage('images/shopping_red.png')
       ],
       [
-        getTabImage('images/ic_msg_normal.png'),
-        getTabImage('images/ic_msg_press.png')
+        getTabImage('images/msg_gray.png'),
+        getTabImage('images/msg_red.png')
       ],
       [
-        getTabImage('images/ic_my_normal.png'),
-        getTabImage('images/ic_my_press.png')
+        getTabImage('images/me_gray.png'),
+        getTabImage('images/me_red.png')
       ]
     ];
 
-    _bodys = [new HomePage(), new ShopPage(), new MsgPage(), new MyPage()];
+    _bodys = [
+      new HomePage(context),
+      new ShopPage(context),
+      new MsgPage(context),
+      new MyPage(context)
+    ];
   }
 
   @override
@@ -117,35 +122,64 @@ class MainPageState extends State<MainPageWidget> {
     initData();
     return Scaffold(
       appBar: new AppBar(
-        // leading: new Icon(Icons.arrow_back),
         title: new Text("主页"),
         backgroundColor: Colors.black,
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.widgets),
             onPressed: () {
-              Navigator.of(context).pushNamed("/list");
-              // final parentContext Context;
+              // Navigator.of(context).pushNamed("/list");/* 静态路由 */
+              /* 动态路由，传递参数 */
+              // Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) => new RandomWords(context)));
+              /* 动态路由，接收返回参数 */
+              // String userName = "yinll";
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                      new RandomWords(context))).then((data){
+                        var result =data;
+                        print(result);
+                        Fluttertoast.showToast(
+                          msg: data,
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIos: 1,
+                          backgroundColor: Colors.black,
+                          textColor: Colors.white
+                        );
+              });
+              
+
               // Navigator.push(
               //   context,
-              //   new MaterialPageRoute(builder: (context) => new RandomWords(product:context))
+              //   new MaterialPageRoute(builder: (context) => new RandomWords(context))
               // );
             },
           ),
           new IconButton(
-            icon: new Icon(Icons.home),
+            icon: new Icon(Icons.perm_identity),
             onPressed: () {
               // Navigator.of(context).pushNamed("/home");
-              Navigator.push(context,
-                  new MaterialPageRoute(builder: (context) => new MainPage()));
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) => new MyPage(context)));
             },
           ),
           new IconButton(
             icon: new Icon(Icons.insert_comment),
             onPressed: () {
+              
               // Navigator.of(context).pushNamed("/msg");
-              Navigator.push(context,
-                  new MaterialPageRoute(builder: (context) => new MsgPage()));
+              Fluttertoast.showToast(
+                msg: "点击图标弹出提示气泡",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIos: 1,
+                backgroundColor: Colors.black,
+                textColor: Colors.white
+              );
             },
           ),
           new IconButton(

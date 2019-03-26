@@ -29,7 +29,8 @@ dependencies:
   css_colors: ^1.0.0
   # url_launcher: '>=0.1.2 <0.2.0'
   # collection: '^0.1.2'
-  # url_launcher: ^2.0.0
+  # url_launcher: ^2.0.0  
+  fluttertoast: ^3.0.3
 
 dev_dependencies:
   flutter_test:
@@ -42,20 +43,30 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets: 
-    - images/like.png
-    - images/house.png
     - images/bpbg.jpg
-    - images/timbg.jpg
-    - images/black.jpg
-    - images/bluebg.jpg
-    - images/ic_home_normal.png
-    - images/ic_home_press.png
-    - images/ic_shop_normal.png
-    - images/ic_shop_press.png
-    - images/ic_msg_normal.png
-    - images/ic_msg_press.png
-    - images/ic_my_normal.png
-    - images/ic_my_press.png
+    - images/blue.png
+    - images/timbg.png
+    - images/black.png
+    - images/like.png
+    - images/right.png
+    
+    - images/home_gray.png
+    - images/home_red.png
+    - images/home_purple.png
+    - images/home_dark.png
+    - images/shopping_gray.png
+    - images/shopping_red.png
+    - images/shopping_purple.png
+    - images/shopping_dark.png
+    - images/msg_gray.png
+    - images/msg_red.png
+    - images/msg_purple.png
+    - images/msg_dark.png
+    - images/me_gray.png
+    - images/me_red.png
+    - images/me_purple.png
+    - images/me_dark.png
+    
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -3,6 +3,10 @@ import 'package:startup_namer/home.dart';
 
 /* 动态装置StatefulWidget--HomePage */
 class HomePage extends StatefulWidget {
+  @override
+  final parentContext;
+  HomePage(this.parentContext);
+
   State<StatefulWidget> createState() {
     return new HomeState();
   }
@@ -15,33 +19,6 @@ class HomeState extends State<HomePage> {
   }
 }
 
-/* 静态装置StatelessWidget--HomePage2 */
-// class HomePage2 extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return new Scaffold(
-//       appBar:new AppBar(
-//         title: new Text('Home'),
-//         actions: <Widget>[
-//           new IconButton(
-//             icon: new Icon(Icons.home),
-//             onPressed: (){
-//               Navigator.of(context).push(
-//                 new MaterialPageRoute(builder: (context) {
-//                   return new Scaffold( body: new MainPage(),);
-//                 })
-//                );
-//             },
-//           )
-//         ],
-//       ),
-//       body: new Center(
-//         child: new Text('首页'),
-//       ),
-//     );
-//   }
-// }
-
 Widget materialHome = new MaterialApp(
   title: 'Flutter Demo',
   routes: <String, WidgetBuilder>{
@@ -53,123 +30,36 @@ Widget materialHome = new MaterialApp(
   debugShowCheckedModeBanner: false,
   home: new Scaffold(
     body: new Container(
-      // padding: new EdgeInsets.all(15),
-      child: new ListView(
-        padding: const EdgeInsets.all(15.0),
-        children: <Widget>[
-          new Text('图片列表',
-              textAlign: TextAlign.center, style: TextStyle(fontSize: 20)),
-          new Container(
-            margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
-            width: 750,
+      padding: new EdgeInsets.fromLTRB(15, 0, 15, 15),
+      child: new ListView.builder(
+        itemCount: _imgs.length,
+        itemBuilder: (context, index) {
+          return new Container(
+            margin: new EdgeInsets.fromLTRB(0, 0, 0, 10),
+            // width: 750,
+            height: 120,
             child: new AspectRatio(
-              aspectRatio: 2.2,
+              aspectRatio: 2.8,
               child: new FittedBox(
                 fit: BoxFit.fitWidth,
                 alignment: Alignment.center,
                 child: new Container(
-                  child: new Image.asset('images/bpbg.jpg'),
+                  child: new Image.asset(_imgs[index]),
                 ),
               ),
             ),
-          ),
-          new Container(
-            margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
-            width: 750,
-            child: new AspectRatio(
-              aspectRatio: 2.2,
-              child: new FittedBox(
-                fit: BoxFit.fitWidth,
-                alignment: Alignment.center,
-                child: new Container(
-                  child: new Image.asset('images/timbg.jpg'),
-                ),
-              ),
-            ),
-          ),
-          new Container(
-            margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
-            width: 750,
-            child: new AspectRatio(
-              aspectRatio: 2.2,
-              child: new FittedBox(
-                fit: BoxFit.fitWidth,
-                alignment: Alignment.center,
-                child: new Container(
-                  child: new Image.asset('images/bluebg.jpg'),
-                ),
-              ),
-            ),
-          ),
-          new Container(
-            margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
-            width: 750,
-            child: new AspectRatio(
-              aspectRatio: 2.2,
-              child: new FittedBox(
-                fit: BoxFit.fitWidth,
-                alignment: Alignment.center,
-                child: new Container(
-                  child: new Image.asset('images/black.jpg'),
-                ),
-              ),
-            ),
-          ),
-          new Container(
-            margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
-            width: 750,
-            child: new AspectRatio(
-              aspectRatio: 2.2,
-              child: new FittedBox(
-                fit: BoxFit.fitWidth,
-                alignment: Alignment.center,
-                child: new Container(
-                  child: new Image.asset('images/bpbg.jpg'),
-                ),
-              ),
-            ),
-          ),
-          new Container(
-            margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
-            width: 750,
-            child: new AspectRatio(
-              aspectRatio: 2.2,
-              child: new FittedBox(
-                fit: BoxFit.fitWidth,
-                alignment: Alignment.center,
-                child: new Container(
-                  child: new Image.asset('images/timbg.jpg'),
-                ),
-              ),
-            ),
-          ),
-        ],
+          );
+        },
       ),
-      // child:new Text("首页")
     ),
   ),
 );
 
-var imgs = [
+final _imgs = [
+  'images/timbg.png',
   'images/bpbg.jpg',
-  'images/timbg.jpg',
-  'images/bluebg.jpg',
-  'images/black.jpg',
-  'images/bpbg.jpg',
-  'images/timbg.jpg',
+  'images/blue.png',
+  'images/black.png',
+  'images/like.png',
+  'images/right.png',
 ];
-
-Widget imgContanier = new Container(
-  margin: new EdgeInsets.fromLTRB(0, 10, 0, 10),
-  width: 750,
-  child: new AspectRatio(
-    aspectRatio: 2.2,
-    child: new FittedBox(
-      fit: BoxFit.fitWidth,
-      alignment: Alignment.center,
-      child: new Container(
-        child: new Image.asset('images/timbg.jpg'),
-      ),
-    ),
-  ),
-);

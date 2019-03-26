@@ -3,14 +3,15 @@ import 'package:startup_namer/list.dart';
 
 /* 动态装置StatefulWidget--MyPage */
 class MyPage extends StatefulWidget {
+  final parentContext;
+  MyPage(this.parentContext);
+
   State<StatefulWidget> createState() {
     return new MyPageState();
   }
 }
 
 class MyPageState extends State<MyPage> {
-  // final parentContext;
-  // MyPage(this.parentContext);
   var check = false;
   bool isCheck = false;
   List<bool> isChecks = [false, false];
@@ -25,7 +26,7 @@ class MyPageState extends State<MyPage> {
       debugShowCheckedModeBanner: false,
       // home: new MyPage(parentContext),
       routes: <String, WidgetBuilder>{
-        "/list": (BuildContext context) => new RandomWords(),
+        "/list": (BuildContext context) => new RandomWords(context),
       },
       home: new Scaffold(
         body: new Center(
@@ -97,84 +98,8 @@ class MyPageState extends State<MyPage> {
               ),
             ],
           )
-          // child: new ListView(
-          //   children: <Widget>[
-          //     new Center(
-          //       child: new CheckboxListTile(
-          //           value: isCheck,
-          //           title: new Text('全选'),
-          //           controlAffinity: ListTileControlAffinity.platform,
-          //           onChanged: (bool) {
-          //             setState(() {
-          //               isCheck = bool;
-          //             });
-          //           }),
-          //     ),
-          //     new Center(
-          //       child: new CheckboxListTile(
-          //           value: isCheck,
-          //           title: new Text('选项1'),
-          //           controlAffinity: ListTileControlAffinity.platform,
-          //           onChanged: (bool) {
-          //             setState(() {
-          //               isCheck = bool;
-          //             });
-          //           }),
-          //     ),
-          //     new Center(
-          //       child: new CheckboxListTile(
-          //           value: isCheck,
-          //           title: new Text('选项1'),
-          //           controlAffinity: ListTileControlAffinity.platform,
-          //           onChanged: (bool) {
-          //             setState(() {
-          //               isCheck = bool;
-          //             });
-          //           }),
-          //     ),
-          //     new Center(
-          //       child: new CheckboxListTile(
-          //           value: isChecks[1],
-          //           title: new Text('选项1'),
-          //           controlAffinity: ListTileControlAffinity.platform,
-          //           onChanged: (bool) {
-          //             setState(() {
-          //               isChecks[1] = bool;
-          //             });
-          //           }),
-          //     )
-          //   ],
-          // ),
         ),
       ),
     );
   }
-
-  // void setState(Null Function() value) { }
 }
-
-// class PageWidget extends StatefulWidget {
-//   final parentContext;
-
-//   PageWidget(this.parentContext);
-//   @override
-//   State<StatefulWidget> createState() {
-//     return new PageState();
-//   }
-// }
-
-// class PageState extends State<PageWidget> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return new Scaffold(
-//        body: new Center(child: new RaisedButton(onPressed: _pushPage,child: new Text("跳转"),),),
-//     );
-//   }
-//   _pushPage(){
-//    Navigator.of(widget.parentContext).pushNamed("/list");
-
-//     // Navigator.of(widget.parentContext).push(new MaterialPageRoute(builder: (context) {
-//     //   return new RandomWords();
-//     // },));
-//   }
-// }

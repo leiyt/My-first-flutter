@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MsgPage extends StatefulWidget {
+  final parentContext;
+  MsgPage(this.parentContext);
+
   State<StatefulWidget> createState() {
     return new MsgPageState();
   }
@@ -22,12 +25,51 @@ Widget materialMsg = new MaterialApp(
   home: new Scaffold(
     body: new Container(
       margin: new EdgeInsets.symmetric(vertical: 20),
-      child: new ListView(
-        children: <Widget>[cardList],
+      child: new ListView.builder(
+        itemCount: _infoList.length,
+        itemBuilder: (context, index) {
+          return new Card(
+            child: new Column(children: <Widget>[
+              new ListTile(
+                title: new Text(_infoList[index],
+                    style: TextStyle(color: Colors.green, fontSize: 18)),
+                subtitle:
+                    new Text(_infotitle[index], style: TextStyle(color: Colors.blueGrey)),
+                leading: new Icon(Icons.message, color: Colors.green),
+              ),
+              new Divider(),
+            ]),
+          );
+        },
       ),
     ),
   ),
 );
+
+var _infoList = [
+  '这是一条新消息',
+  '新消息：今晚开会',
+  '这是一条新消息',
+  '新消息：今晚加班',
+  '在干嘛？',
+  '请取快递！',
+  '工作提醒！',
+  '邮件提醒',
+  '老板的消息',
+  '这个今天必须做完',
+];
+var _infotitle = [
+  '新消息',
+  '新消息',
+  '新消息',
+  '工作提醒',
+  '私人消息',
+  '快递消息',
+  '工作提醒',
+  '邮件提醒',
+  '老板的消息',
+  '私人消息'
+];
 
 Widget cardList = new Column(
 // var cardList = new Column(
@@ -42,6 +84,18 @@ Widget cardList = new Column(
           leading: new Icon(Icons.message, color: Colors.blueGrey),
         ),
         new Divider(),
+        // new Tooltip(
+        //   message: "来新消息啦",//提示的内容
+        //   height: 60.0,//Tooltip的高度
+        //   verticalOffset: 50.0,//具体内部child Widget竖直方向的距离,
+        //   preferBelow:false,//是否显示在下面
+        //   padding: EdgeInsets.all(20.0),//padding
+        //   child: Icon(
+        //     Icons.android,
+        //     size: 50.0,
+        //     color: Colors.green,
+        //   )
+        // ),
         new Container(
           padding: new EdgeInsets.all(16),
           child: new Row(
@@ -212,10 +266,10 @@ var msgData = [
   new Msg('msg', '新消息3'),
 ];
 
-final tiles = msgData.map((Msg m) {
+final tiles = msgData.map((Msg item) {
   var listTile = new ListTile(
     leading: new Icon(Icons.accessibility, color: Colors.blueGrey), // item 前置图标
-    title: new Text(m.value, style: TextStyle(fontSize: 20)), // item 标题
+    title: new Text(item.value, style: TextStyle(fontSize: 20)), // item 标题
     subtitle: new Text('subtitle'), // item 副标题
     trailing: new Icon(Icons.adb, color: Colors.blueGrey), // item 后置图标
     isThreeLine: false, // item 是否三行显示

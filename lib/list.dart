@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'home.dart';
 import 'pages/HomePage.dart';
 
 
 class RandomWords extends StatefulWidget {
-  @override
+  final parentContext;
+  RandomWords(this.parentContext);
+  
+  @override  
   State<StatefulWidget> createState() {
     // RandomWords方法去调用RandomWordsState方法
     return new RandomWordsState();
@@ -23,28 +25,27 @@ class RandomWordsState extends State {
 
   Widget build(BuildContext context) {
     // RandomWordsState方法的实现==》随机生成个一个单词
-    final wordPair = new WordPair.random();
+    // final wordPair = new WordPair.random();
     // return new Text(wordPair.asPascalCase);
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
           title: new Text("words list"),
-        backgroundColor: Colors.brown,
-        actions: <Widget>[
-          new IconButton(
-              icon: new Icon(Icons.import_contacts), onPressed: _pushSaved),
-          new IconButton(icon: new Icon(Icons.home), onPressed: _toHome),
-          new IconButton(icon: new Icon(Icons.settings), onPressed: _setting),
-        ],
+          leading: new IconButton(icon: new Icon(Icons.arrow_back), onPressed: _toHome),
+          backgroundColor: Colors.brown,
+          actions: <Widget>[
+            new IconButton(icon: new Icon(Icons.import_contacts), onPressed: _pushSaved),
+            new IconButton(icon: new Icon(Icons.home), onPressed: _toHome),
+            new IconButton(icon: new Icon(Icons.settings), onPressed: _setting),
+          ],
         ),
         body: _buildSuggestions(),
       ),
       routes: <String, WidgetBuilder>{
-        "/main": (BuildContext context) => new MainPage(),
-        "/home": (BuildContext context) => new HomePage(),
+        "/home": (BuildContext context) => new HomePage(context),
       }
     );
-
+    
     // return new Scaffold(
     //   appBar: new AppBar(
     //     title: new Text("words list"),
@@ -59,7 +60,20 @@ class RandomWordsState extends State {
     //   body: _buildSuggestions(),
     // );
   }
+  void _toHome() {
+    // Navigator.of(context).pushNamed('/home');
+    var params = "这是list页面返回的参数";
+    Navigator.of(context).pop(params);
+    print('返回');
+    // Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
+    //   return new MainPage(title: '路由是个好东西，要进一步封装');
+    // }));
+  }
 
+  void _setting() {
+    print('去设置页面');
+  }
+  
   //循环处理数据_suggestions并循环调用_buildRow渲染
   Widget _buildSuggestions() {
     return new ListView.builder(
@@ -167,24 +181,9 @@ class RandomWordsState extends State {
     });
     Navigator.of(context).push(materialPageRoute);
   }
-
   void toNewPage() {
-    // Navigator.of(context).push(materialPageRoute2);
+      // Navigator.of(context).push(materialPageRoute2);
   }
 }
 
-// bold24roboto() => bold24Roboto;
 
-void _setting() {
-  print('去设置页面');
-}
-
-void _toHome() {
-  print('去首页');
-  // BuildContext context;
-  // Navigator.of(context).pushNamed('/home');
-  // Navigator.push(
-  //   context,
-  //   new MaterialPageRoute(builder: (context) => new MainPage())
-  // );
-}
